@@ -6,18 +6,17 @@
  *
  */
 
-import {format, isToday} from 'date-fns';
+// Steph - we can see that the `excerpts` import is quite hefty!
+// But by using it in a server component, we don't need to add it to the bundle!
 import excerpts from 'excerpts';
 import {marked} from 'marked';
 
 import SidebarNoteContent from './SidebarNoteContent';
+import SidebarNoteHeader from './SidebarNoteHeader';
 
 export default function SidebarNote({note}) {
-  const updatedAt = new Date(note.updated_at);
-  const lastUpdatedAt = isToday(updatedAt)
-    ? format(updatedAt, 'h:mm bb')
-    : format(updatedAt, 'M/d/yy');
   const summary = excerpts(marked(note.body), {words: 20});
+
   return (
     <SidebarNoteContent
       id={note.id}
@@ -25,10 +24,7 @@ export default function SidebarNote({note}) {
       expandedChildren={
         <p className="sidebar-note-excerpt">{summary || <i>(No content)</i>}</p>
       }>
-      <header className="sidebar-note-header">
-        <strong>{note.title}</strong>
-        <small>{lastUpdatedAt}</small>
-      </header>
+      <SidebarNoteHeader note={note} />
     </SidebarNoteContent>
   );
 }

@@ -23,7 +23,7 @@ export default async function NoteList({searchText}) {
   ).rows;
 
   // Now let's see how the Suspense boundary above lets us not block on this.
-  // await fetch('http://localhost:4000/sleep/3000');
+  await fetch('http://localhost:4000/sleep/1000');
 
   return notes.length > 0 ? (
     <ul className="notes-list">
