@@ -6,6 +6,7 @@
  *
  */
 
+// Steph - this directive is how we tell React that this is a client component
 'use client';
 
 import {useState, useRef, useEffect, useTransition} from 'react';
@@ -17,6 +18,7 @@ export default function SidebarNoteContent({
   children,
   expandedChildren,
 }) {
+  // Steph - Note that this needs to be a client component because it is using hooks (e.g. `useState`)
   const {location, navigate} = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -82,6 +84,8 @@ export default function SidebarNoteContent({
           <img src="chevron-up.svg" width="10px" height="10px" alt="Expand" />
         )}
       </button>
+      {/* However, we can display render content from the server INSIDE a client component
+      by passing it via a property */}
       {isExpanded && expandedChildren}
     </div>
   );
