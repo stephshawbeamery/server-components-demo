@@ -6,25 +6,22 @@
  *
  */
 
-// Steph - we can see that the `excerpts` import is quite hefty!
-// But by using it in a server component, we don't need to add it to the bundle!
-import excerpts from 'excerpts';
-import {marked} from 'marked';
-
 import SidebarNoteContent from './SidebarNoteContent';
 import SidebarNoteHeader from './SidebarNoteHeader';
+import SidebarNoteExcerpt from './SidebarNoteExcerpt';
 
 export default function SidebarNote({note}) {
-  const summary = excerpts(marked(note.body), {words: 20});
-
   return (
     <SidebarNoteContent
       id={note.id}
       title={note.title}
-      expandedChildren={
-        <p className="sidebar-note-excerpt">{summary || <i>(No content)</i>}</p>
-      }>
-      <SidebarNoteHeader note={note} />
+      // Steph - You can't render a Server Component as a direct child of a Client Component
+      // But you can pass a React Node containing a Server Component as a property instead!
+      expandedChildren={<SidebarNoteExcerpt body={note.body} />}>
+      <SidebarNoteHeader
+        note={note}
+        myFunction={() => console.log('Hello world!')}
+      />
     </SidebarNoteContent>
   );
 }
