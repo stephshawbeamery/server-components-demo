@@ -1,3 +1,21 @@
+# Hey there ReactJS Girls 👋
+
+Steph here! This is my fork of the React team's [Server Components Demo repo](https://github.com/reactjs/server-components-demo) with a few little tweaks:
+- Reorganised some of the `SidebarNote` components to make it clearer how Server Components and Client Components work together
+- Added some annotations in comments to explain what's happening in more detail
+  
+To setup and run the demo locally, continue reading the readme from the [React Server Components Demo](#react-server-components-demo) section below.
+
+
+🚨 **To view my annotations, search for the word `Steph` in the repo** 🔎
+
+
+The slide deck for the talk is available to view here: [Server Components - React's Server-Side Revolution](https://docs.google.com/presentation/d/1EyRGl1f7UzLsvY826V_TNxS4UQ7O5RO248aUUc11WuI/edit?usp=sharing)
+
+Do checkout [my github profile](https://github.com/stephshawbeamery) where you can see details of my other upcoming talks. Also, feel free to [connect with me on LinkedIn](https://www.linkedin.com/in/stephieshaw/) 🤝
+
+Thanks so much for attending, I had such a great time. Phenomenal vibes! 🙇
+
 # React Server Components Demo
 
 * [What is this?](#what-is-this)
